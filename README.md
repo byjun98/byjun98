@@ -104,8 +104,16 @@
 
 <br>
 
-## 📞 연락처 (Contact)
+### 📞Connect with me:
 
-- **Email**: <a href="mailto:your-email@example.com">your-email@example.com</a>
-- **GitHub**: <a href="https://github.com/your-github-id">https://github.com/your-github-id</a>
-- **Blog**: <a href="[개인 블로그 주소]">your-blog.com</a>
+[<img align="left" alt="SOKURI_CODE | velog" width="48px" src="https://img.icons8.com/color/48/000000/blog.png" />][website]
+[<img align="left" alt="SOKURI_CODE | YouTube" width="48px" src="https://img.icons8.com/color/48/000000/youtube-play.png" />][youtube]
+[<img align="left" alt="SOKURI_CODE | Twitter" width="48px" src="https://img.icons8.com/color/48/000000/twitter-squared.png" />][twitter]
+[<img align="left" alt="SOKURI_CODE | LinkedIn" width="48px" src="https://img.icons8.com/color/48/000000/linkedin.png" />][linkedin]
+[<img align="left" alt="SOKURI_CODE | Instagram" width="48px" src="https://img.icons8.com/color/48/000000/instagram-new--v2.png" />][instagram]
+
+[website]: https://velog.io/@byjun98
+[twitter]: https://twitter.com/
+[youtube]: https://youtube.com/
+[linkedin]: https://linkedin.com/in/
+[instagram]: https://instagram.com/
