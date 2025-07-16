@@ -52,7 +52,7 @@
 
 <br>
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=byjun98anuraghazra&layout=compact)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=byjun98&layout=compact)
 
 ## 📂 프로젝트 (Projects)
 
