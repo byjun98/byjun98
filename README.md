@@ -1,4 +1,4 @@
-# 💻 변현준's Portfolio
+# 💻 현준's Portfolio
 
 <br>
 
@@ -51,6 +51,8 @@
 - 3
 
 <br>
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?byjun98=anuraghazra&layout=compact)
 
 ## 📂 프로젝트 (Projects)
 
