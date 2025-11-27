@@ -33,10 +33,11 @@
 <br>
 
 <a href="https://github.com/byjun98">
-  <img align="center" style="height:180px" src="https://github-readme-stats.vercel.app/api?username=byjun98&show_icons=true&include_all_commits=true&theme=nord&hide_border=true&include_forks=true" alt="byjun98's github stats" />
+  <img align="center" style="height:180px" src="https://github-readme-stats.vercel.app/api?username=byjun98&show_icons=true&include_all_commits=true&theme=nord&hide_border=true&include_forks=true"/>
 </a>
+
 <a href="https://github.com/byjun98">
-  <img align="center" style="height:180px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=byjun98&layout=compact&theme=nord&hide_border=true" />
+  <img align="center" style="height:180px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=byjun98&layout=compact&theme=nord&hide_border=true"/>
 </a>
 
 ## 📂 프로젝트 (Projects)
