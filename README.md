@@ -32,13 +32,14 @@
 
 <br>
 
-<a href="https://github.com/byjun98">
-  <img align="center" style="height:180px" src="https://github-readme-stats.vercel.app/api?username=byjun98&show_icons=true&include_all_commits=true&theme=nord&hide_border=true&include_forks=true"/>
-</a>
-
-<a href="https://github.com/byjun98">
-  <img align="center" style="height:180px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=byjun98&layout=compact&theme=nord&hide_border=true"/>
-</a>
+<div align="center">
+  <a href="https://github.com/byjun98">
+    <img src="https://github-readme-stats.vercel.app/api?username=byjun98&show_icons=true&include_all_commits=true&theme=nord&hide_border=true&include_forks=true" height="180" alt="Jun's GitHub Stats" />
+  </a>
+  <a href="https://github.com/byjun98">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=byjun98&layout=compact&theme=nord&hide_border=true" height="180" alt="Top Langs" />
+  </a>
+</div>
 
 ## 📂 프로젝트 (Projects)
 
