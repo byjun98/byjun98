@@ -117,7 +117,6 @@
 **[GitHub Repository](https://github.com/byjun98/C2S)** | **[시연 영상](https://naver.me/xM5MxOAq)**
 </details>
 <br>
----
 
 <details>
 <summary><b>2. ChuraiGame — 개인화 게임 추천 서비스</b></summary>
@@ -177,7 +176,6 @@
 **[GitHub Repository](https://github.com/byjun98/ChuraiGame)**
 </details>
 <br>
----
 
 <details>
 <summary><b>3. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
@@ -227,7 +225,6 @@
 **[GitHub Repository](https://github.com/byjun98/foot_pressure_arduino)**
 </details>
 <br>
----
 
 <details>
 <summary><b>4. AniCare Plus — 반려동물 통합 케어 플랫폼</b></summary>
@@ -319,9 +316,8 @@
 **[GitHub Repository](https://github.com/byjun98/AnimalCarePlus)**
 </details>
 <br>
----
 
-## 게임 클라이언트 개발을 향한 여정
+## 게임 클라이언트 개발을 향한 과정
 
 <div align="center">
 
