@@ -179,53 +179,53 @@
 
 ### 4. [C2S - 웹소켓 기반 실시간 전술 멀티플레이어 시뮬레이터] (2026.01 ~ 2026.02)
 
-<a href="[프로젝트 Github 링크]">
-  <img src="./docs/image/imag.png" alt="C2S 대표 이미지" width="700"/>
+<a href="https://github.com/byjun98/C2S">
+  <img src="https://raw.githubusercontent.com/byjun98/C2S/main/docs/image/imag.png" alt="C2S 대표 이미지" width="700"/>
 </a>
 
 **프로젝트 스크린샷**
 
-| 로비 및 매치메이킹 (Session Mgmt) | 전술 맵 동기화 (Network Sync) | 
+| 로비 및 매치메이킹 | 전술 맵 동기화 | 
 |:---:|:---:|
-| ![로비](./docs/image/Scenario_2.jpg) | ![작전지도](./docs/image/Scenario_3.jpg) | 
+| ![로비](https://raw.githubusercontent.com/byjun98/C2S/main/docs/image/Scenario_2.jpg) | ![작전지도](https://raw.githubusercontent.com/byjun98/C2S/main/docs/image/Scenario_3.jpg) | 
 
-| 화상 통신 및 오더 (Real-time Comm) | 리플레이 및 분석 (Spectator Tool) |
+| 화상 통신 및 오더 | 리플레이 및 분석 |
 |:---:|:---:|
-| ![화상회의](./docs/image/Scenario_4.jpg) | ![리플레이](./docs/image/Scenario_6.jpg) |
+| ![화상회의](https://raw.githubusercontent.com/byjun98/C2S/main/docs/image/Scenario_4.jpg) | ![리플레이](https://raw.githubusercontent.com/byjun98/C2S/main/docs/image/Scenario_6.jpg) |
 
-**핵심 기술 및 구현 내용 (Game Client Aspects)**
+**핵심 기술 및 구현 내용**
 
-- **실시간 멀티플레이어 네트워크 동기화 (Network Sync)**
-  - `WebSocket(STOMP)`을 활용하여 다수 클라이언트 간의 **유닛 이동 좌표, 상태 변화(State Change)를 실시간으로 동기화**
-  - 네트워크 지연(Latency)을 고려한 낙관적 업데이트(Optimistic Update) 패턴 적용으로 끊김 없는 UX 구현
-- **클라이언트 상태 머신 (Client State Machine) 설계**
-  - `Zustand`를 활용하여 로비 → 대기실 → 인게임(훈련) → 결과 화면으로 이어지는 **게임 루프(Game Loop) 및 상태 전이**를 중앙 집중식으로 관리
-  - 복잡한 인게임 데이터(유닛 정보, 룸 세션)를 싱글톤(Singleton) 유사 패턴으로 구조화하여 데이터 무결성 확보
-- **인게임 툴(In-game Tool) 및 관전 시스템 개발**
-  - 플레이어뿐만 아니라 평가관(Observer)이 실시간으로 훈련 상황을 모니터링하고 개입할 수 있는 **관전 모드(Spectator Mode)** 구현
-  - 훈련 로그를 시계열로 저장하고 재생하는 **리플레이 시스템(Replay System)** 개발로 툴 제작 역량 확보
+- **실시간 멀티플레이어 네트워크 동기화**
+  - `WebSocket(STOMP)`을 활용하여 다수 클라이언트 간의 **유닛 이동 좌표 및 상태 변화를 실시간으로 동기화**
+  - 네트워크 지연을 고려한 낙관적 업데이트(Optimistic Update) 패턴 적용으로 끊김 없는 UX 구현
+- **클라이언트 상태 머신 설계**
+  - `Zustand`를 활용하여 로비 → 대기실 → 인게임(훈련) → 결과 화면으로 이어지는 **게임 루프 및 상태 전이**를 중앙 집중식으로 관리
+  - 복잡한 인게임 데이터(유닛 정보, 룸 세션)를 싱글톤 유사 패턴으로 구조화하여 데이터 무결성 확보
+- **인게임 툴 및 관전 시스템 개발**
+  - 플레이어뿐만 아니라 평가관이 실시간으로 훈련 상황을 모니터링하고 개입할 수 있는 **관전 모드** 구현
+  - 훈련 로그를 시계열로 저장하고 재생하는 **리플레이 시스템** 개발로 툴 제작 역량 확보
 - **렌더링 퍼포먼스 최적화**
-  - 다량의 유닛 데이터와 전술 드로잉이 빈번하게 갱신되는 맵 뷰어(Map Viewer)의 불필요한 리렌더링 방지 및 프레임 방어
+  - 다량의 유닛 데이터와 전술 드로잉이 빈번하게 갱신되는 맵 뷰어의 불필요한 리렌더링 방지 및 프레임 방어
 
 **역할**
 
-- **Client Architecture**: React 19 기반의 컴포넌트 생명주기 관리 및 클라이언트 아키텍처 설계
-- **Network Logic**: OpenVidu(WebRTC) 및 WebSocket 패킷 처리 로직 구현을 통한 실시간성 보장
-- **Tool Development**: 전술 훈련 시나리오 편집 및 실시간 드로잉 툴(Canvas API 활용) 기능 개발
-- **Data-Driven Design**: JSON 기반의 시나리오 데이터 파싱 및 동적 컨텐츠 생성 로직 구현
+- **클라이언트 아키텍처**: React 19 기반의 컴포넌트 생명주기 관리 및 클라이언트 구조 설계
+- **네트워크 로직**: OpenVidu(WebRTC) 및 WebSocket 패킷 처리 로직 구현을 통한 실시간성 보장
+- **툴 개발**: 전술 훈련 시나리오 편집 및 실시간 드로잉 툴(Canvas API 활용) 기능 개발
+- **데이터 주도 설계**: JSON 기반의 시나리오 데이터 파싱 및 동적 컨텐츠 생성 로직 구현
 
 **사용한 기술 스택**
 
-- **Client Engine**: `React 19`, `TypeScript`, `Vite` (Web-based)
-- **Networking**: `WebSocket (STOMP)`, `OpenVidu (WebRTC)`, `Axios`
-- **State Mgmt**: `Zustand` (Global State Store)
+- **Frontend**: `React 19`, `TypeScript`, `Vite`
+- **Network**: `WebSocket (STOMP)`, `OpenVidu (WebRTC)`, `Axios`
+- **State Management**: `Zustand`
 - **Rendering/UI**: `Canvas API`, `Tailwind CSS`, `Framer Motion`
 
 **성과**
 
-- **Event-driven 아키텍처**를 통해 다중 접속 환경에서도 데이터 충돌 없는 안정적인 세션 관리 구현
+- **이벤트 주도(Event-driven) 아키텍처**를 통해 다중 접속 환경에서도 데이터 충돌 없는 안정적인 세션 관리 구현
 - 웹 기술을 활용하여 별도 설치가 필요 없는 **경량화된 전술 시뮬레이션 클라이언트** 구축
-- **전술 데이터 시각화** 및 리플레이 기능을 통해 게임 운영 툴(Admin Tool) 개발 가능성 입증
+- **전술 데이터 시각화** 및 리플레이 기능을 통해 게임 운영 툴 개발 가능성 입증
 
 🔗 **[GitHub Repository]**([프로젝트 Github 링크]) | 🔗 **[시연 영상]**(https://naver.me/xM5MxOAq)
 
