@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:7c3aed&height=300&section=header&text=Byun%20Hyunjun&fontSize=70&fontColor=ffffff&fontAlignY=38&desc=Game%20Planner%20%26%20Client%20Developer&descSize=20&descAlignY=55&descColor=c4b5fd)
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:7c3aed&height=300&section=header&text=Byun%20Hyunjun&fontSize=70&fontColor=ffffff&fontAlignY=38&desc=Game%20Planner%20%26amp%3B%20Client%20Developer&descSize=20&descAlignY=55&descColor=c4b5fd)
 
 <div align="center">
 
