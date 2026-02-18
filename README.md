@@ -69,8 +69,9 @@
 ## 프로젝트
 
 <br>
-
-### 1. C2S — 웹소켓 기반 실시간 전술 멀티플레이어 시뮬레이터
+<details>
+<summary><b>1. C2S — 웹소켓 기반 실시간 전술 멀티플레이어 시뮬레이터</b></summary>
+<br>
 
 > **2026.01 ~ 2026.02** · 프론트엔드 담당 (React 19 + TypeScript)
 
@@ -114,10 +115,13 @@
 - 전술 데이터 시각화 및 리플레이 기능으로 **게임 운영 툴 개발 역량** 입증
 
 **[GitHub Repository](https://github.com/byjun98/C2S)** | **[시연 영상](https://naver.me/xM5MxOAq)**
-
+</details>
+<br>
 ---
 
-### 2. ChuraiGame — 개인화 게임 추천 서비스
+<details>
+<summary><b>2. ChuraiGame — 개인화 게임 추천 서비스</b></summary>
+<br>
 
 > **2025.09 ~ 2025.11** · 풀스택 (Django + DRF + Vue 3)
 
@@ -171,10 +175,13 @@
 | **API**      | `Steam Web API`, `RAWG`, `CheapShark`, `Gemini 2.5 Flash Lite` |
 
 **[GitHub Repository](https://github.com/byjun98/ChuraiGame)**
-
+</details>
+<br>
 ---
 
-### 3. 족압 측정 앱 (FP2) — Arduino BLE + React Native
+<details>
+<summary><b>3. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
+<br>
 
 > **2024.03 ~ 2024.06** · 1인 개발 (React Native + Expo + Arduino)
 
@@ -218,10 +225,13 @@
 - 차트 로직 공통 컴포넌트화 + TypeScript 전환으로 **유지보수성** 향상
 
 **[GitHub Repository](https://github.com/byjun98/foot_pressure_arduino)**
-
+</details>
+<br>
 ---
 
-### 4. AniCare Plus — 반려동물 통합 케어 플랫폼
+<details>
+<summary><b>4. AniCare Plus — 반려동물 통합 케어 플랫폼</b></summary>
+<br>
 
 > **2024.03 ~ 2024.06** · 프론트엔드 담당 (React 18)
 
@@ -307,7 +317,8 @@
 - AI 분석 → GPT 케어 가이드 → 챗봇까지 **엔드투엔드 파이프라인** 프론트에서 오케스트레이션
 
 **[GitHub Repository](https://github.com/byjun98/AnimalCarePlus)**
-
+</details>
+<br>
 ---
 
 ## 게임 클라이언트 개발을 향한 여정
