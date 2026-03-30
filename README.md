@@ -70,7 +70,112 @@
 
 <br>
 <details>
-<summary><b>1. C2S — 웹소켓 기반 실시간 전술 멀티플레이어 시뮬레이터</b></summary>
+<summary><b>1. SsafyPlayTime — 래그돌 물리 기반 4인 멀티플레이어 파티 배틀 게임</b></summary>
+<br>
+
+> **2026.02 ~ 2026.04** · Unity 클라이언트 개발 리드 (C# · Unity 2022.3 LTS · Photon Fusion 2)
+
+<a href="https://github.com/byjun98/SsafyPlayTime">
+  <img src="assets/ssafy_playtime/SsafyPlayTimeLogo.png" alt="SsafyPlayTime 로고" width="700"/>
+</a>
+
+#### 프로젝트 스크린샷
+
+| 로비 & 캐릭터 선택 | 인게임 전투 |
+|:---:|:---:|
+| ![로비](assets/ssafy_playtime/lobby.png) | ![전투](assets/ssafy_playtime/battle.png) |
+
+| 아이템 사용 | 결과 화면 |
+|:---:|:---:|
+| ![아이템](assets/ssafy_playtime/item.png) | ![결과](assets/ssafy_playtime/result.png) |
+
+#### 프로젝트를 통해 배운 점
+
+| 배운 점 | 구체적 내용 |
+|:---|:---|
+| **래그돌 물리 & 상태 머신 설계** | PuppetMaster 기반 Active Ragdoll 시스템에서 Stable→GrabIntent→Holding→StunnedCollapse→Stunned→Recovering 등 15개 이상의 PhysicalPhase 상태 전이를 설계. 각 상태별 물리 파라미터(pinWeight, muscleWeight, mappingWeight)를 독립 제어하여 자연스러운 래그돌 전환 구현 |
+| **Photon Fusion 네트워크 동기화** | Host-Authoritative 모델에서 15개 관절 회전값(NetworkArray), Hips 절대 위치, 전투 상태를 Networked 속성으로 동기화. OwnerProxy 예측과 StateAuthority 시뮬레이션을 분리하여 입력 지연을 체감 없는 수준으로 감소 |
+| **호스트 마이그레이션** | 방장 이탈 시 SemaphoreSlim 기반 러너 뮤텍스로 NetworkRunner 생성/종료 순서를 보장하고, ReliableData 채널로 참가자 목록·캐릭터 선택·준비 상태를 새 호스트에게 재전송하는 무중단 이관 시스템 구현 |
+| **전투 시스템 밸런싱** | CSV 데이터 테이블 기반으로 8종 전투 액션(펀치~던지기)의 데미지/넉백/쿨다운과 8종 아이템의 효과 파라미터를 외부화. 런타임 로더를 통해 코드 변경 없이 밸런스 튜닝 가능한 구조 설계 |
+| **물리 기반 그랩/캐리 시스템** | ConfigurableJoint + CarryRig + CarryPhysicsProfile로 캐릭터 간 물리적 상호작용(잡기→들기→던지기) 체인을 구현. 양손 독립 그랩, 앵커 포인트별 부위 판정, AntiStretch 제약 조건으로 관절 분리 방지 |
+| **퍼포먼스 최적화** | PuppetMaster LOD 시스템, AOI(Area of Interest) 기반 네트워크 업데이트 범위 제한, 원격 플레이어 물리 비활성화 등으로 4인 동시 접속 시 안정적인 프레임 유지 |
+
+<details>
+<summary><b>기술 상세 — 네트워크 아키텍처 (펼치기)</b></summary>
+
+#### 네트워크 동기화 구조
+
+```
+[Host (StateAuthority)]
+  │
+  ├── FixedUpdateNetwork()
+  │     ├── GetInput<PlayerNetworkInput>()     ← 모든 클라이언트 입력 수집
+  │     ├── 물리 시뮬레이션 (Rigidbody + Joint)
+  │     ├── 전투 판정 (히트박스, 데미지, 스턴)
+  │     └── Networked 속성 갱신
+  │           ├── BoneRotations[15]             ← 관절 회전값 배열
+  │           ├── NetworkedHipsPosition         ← 루트 뼈 절대 위치
+  │           ├── NetworkedPhysicalPhase        ← 물리 상태 (15종)
+  │           ├── NetworkedCarryMode            ← 그랩/캐리 상태
+  │           └── AccumulatedStunDamage         ← 기절 데미지 누적치
+  │
+  ├── [OwnerProxy (InputAuthority)]
+  │     ├── 로컬 입력 예측 (이동, 카메라)
+  │     ├── 그랩 예측 (짧은 지연 허용)
+  │     └── 카메라 앵커 보간 (스냅 방지)
+  │
+  └── [RemoteProxy]
+        ├── Networked 값 기반 포즈 복원
+        ├── PuppetMaster LOD 적용
+        └── 비물리 애니메이션 재생
+```
+
+#### 호스트 마이그레이션 흐름
+
+```
+방장 이탈 감지
+  │
+  ├── OnHostMigration() 콜백
+  │     ├── _runnerLock (SemaphoreSlim) 획득
+  │     ├── 기존 Runner Shutdown
+  │     ├── HostMigrationToken으로 새 Runner 생성
+  │     └── StartGame(StartGameArgs.HostMigration)
+  │
+  ├── 새 호스트 확정 후
+  │     ├── ReliableData로 캐릭터 선택 재전송
+  │     ├── ReliableData로 Ready 상태 재전송
+  │     └── 참가자 로스터 재구성
+  │
+  └── _pendingMigrationToken
+        └── 처리 중 수신된 토큰은 큐잉 후 순차 처리
+```
+
+</details>
+
+#### 사용 기술
+
+| 영역 | 기술 |
+|:---|:---|
+| **Engine** | `Unity 2022.3.62f3 LTS`, `URP 14.0`, `C#` |
+| **Network** | `Photon Fusion 2`, `Photon Realtime`, `ReliableData` |
+| **Physics** | `PuppetMaster`, `Active Ragdoll`, `ConfigurableJoint`, `Rigidbody` |
+| **Animation** | `Cinemachine 2.10.6`, `Animator State Machine`, `Procedural Animation` |
+| **Data** | `CSV 기반 데이터 테이블` (전투 파라미터, 아이템, VFX, SFX) |
+| **Infra** | `Docker`, `MySQL 8.0`, `Redis`, `Spring Boot` |
+
+#### 핵심 성과
+
+- PuppetMaster + Photon Fusion 조합으로 **래그돌 물리가 네트워크로 동기화되는 멀티플레이어 전투**를 구현, 상용 게임 수준의 히트 피드백 달성
+- 15개 관절 회전 + Hips 절대 위치의 **최소 대역폭 동기화 설계**로 4인 동시 접속 시에도 원격 캐릭터 포즈 정확도 유지
+- 호스트 마이그레이션 시 **세션·캐릭터·준비 상태 무손실 이관** 구현으로 게임 중단 없는 플레이 보장
+- CSV 외부화 + 런타임 로더로 **코드 변경 없이 전투 밸런스를 조정**할 수 있는 데이터 주도 설계 적용
+
+**[GitHub Repository](https://github.com/byjun98/SsafyPlayTime)**
+</details>
+<br>
+
+<details>
+<summary><b>2. C2S — 웹소켓 기반 실시간 전술 멀티플레이어 시뮬레이터</b></summary>
 <br>
 
 > **2026.01 ~ 2026.02** · 프론트엔드 담당 (React 19 + TypeScript)
@@ -119,7 +224,7 @@
 <br>
 
 <details>
-<summary><b>2. ChuraiGame — 개인화 게임 추천 서비스</b></summary>
+<summary><b>3. ChuraiGame — 개인화 게임 추천 서비스</b></summary>
 <br>
 
 > **2025.09 ~ 2025.11** · 풀스택 (Django + DRF + Vue 3)
@@ -178,7 +283,7 @@
 <br>
 
 <details>
-<summary><b>3. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
+<summary><b>4. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
 <br>
 
 > **2024.03 ~ 2024.06** · 1인 개발 (React Native + Expo + Arduino)
@@ -227,7 +332,7 @@
 <br>
 
 <details>
-<summary><b>4. AniCare Plus — 반려동물 통합 케어 플랫폼</b></summary>
+<summary><b>5. AniCare Plus — 반려동물 통합 케어 플랫폼</b></summary>
 <br>
 
 > **2024.03 ~ 2024.06** · 프론트엔드 담당 (React 18)
@@ -337,6 +442,13 @@
 │  ├─ 캐시 최적화                  ├─ 관전/리플레이 시스템                 │
 │  └─ AI 연동 & 프롬프트 엔지니어링  ├─ Canvas 기반 렌더링 최적화          │
 │                                  └─ 인게임 툴 개발                     │
+│                                                                      │
+│  SsafyPlayTime (Unity + Photon Fusion)                               │
+│  ├─ 래그돌 물리 & Active Ragdoll 설계                                  │
+│  ├─ Photon Fusion 네트워크 동기화 (관절·상태·전투)                      │
+│  ├─ 호스트 마이그레이션 (무중단 이관)                                    │
+│  ├─ 데이터 주도 전투 밸런싱 (CSV 외부화)                                │
+│  └─ 물리 기반 그랩/캐리/던지기 인터랙션 체인                             │
 │                                                                      │
 │  ════════════════════════════════════════════════════════════════     │
 │  → 모든 프로젝트의 공통분모: 실시간성, 상태 관리, 렌더링 최적화,        │
