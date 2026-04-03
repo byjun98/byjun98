@@ -76,29 +76,29 @@
 > **2026.02 ~ 2026.04** · Unity 클라이언트 개발 리드 (C# · Unity 2022.3 LTS · Photon Fusion 2)
 
 <a href="https://github.com/byjun98/SsafyPlayTime">
-  <img src="assets/ssafy_playtime/SsafyPlayTimeLogo.png" alt="SsafyPlayTime 로고" width="700"/>
+  <img src="assets/ssafy_playtime/SSAFY%20PlayTime.png" alt="SsafyPlayTime 로고" width="700"/>
 </a>
 
 #### 프로젝트 스크린샷
 
-| 로비 & 캐릭터 선택 | 인게임 전투 |
-|:---:|:---:|
-| ![로비](assets/ssafy_playtime/lobby.png) | ![전투](assets/ssafy_playtime/battle.png) |
+| 방 생성 & 캐릭터 선택 | 인게임 이동 |
+|:--------------------------------------:|:---------------------------------------:|
+| ![방 생성](assets/ssafy_playtime/방%20생성.gif) | ![이동](assets/ssafy_playtime/이동.gif) |
 
-| 아이템 사용 | 결과 화면 |
-|:---:|:---:|
-| ![아이템](assets/ssafy_playtime/item.png) | ![결과](assets/ssafy_playtime/result.png) |
+| 잡기 & 던지기 | 전투 액션 |
+|:--------------------------------------:|:---------------------------------------:|
+| ![잡기](assets/ssafy_playtime/잡기.gif) | ![드롭킥](assets/ssafy_playtime/드롭킥.gif) |
 
 #### 프로젝트를 통해 배운 점
 
-| 배운 점 | 구체적 내용 |
-|:---|:---|
-| **래그돌 물리 & 상태 머신 설계** | PuppetMaster 기반 Active Ragdoll 시스템에서 Stable→GrabIntent→Holding→StunnedCollapse→Stunned→Recovering 등 15개 이상의 PhysicalPhase 상태 전이를 설계. 각 상태별 물리 파라미터(pinWeight, muscleWeight, mappingWeight)를 독립 제어하여 자연스러운 래그돌 전환 구현 |
-| **Photon Fusion 네트워크 동기화** | Host-Authoritative 모델에서 15개 관절 회전값(NetworkArray), Hips 절대 위치, 전투 상태를 Networked 속성으로 동기화. OwnerProxy 예측과 StateAuthority 시뮬레이션을 분리하여 입력 지연을 체감 없는 수준으로 감소 |
-| **호스트 마이그레이션** | 방장 이탈 시 SemaphoreSlim 기반 러너 뮤텍스로 NetworkRunner 생성/종료 순서를 보장하고, ReliableData 채널로 참가자 목록·캐릭터 선택·준비 상태를 새 호스트에게 재전송하는 무중단 이관 시스템 구현 |
-| **전투 시스템 밸런싱** | CSV 데이터 테이블 기반으로 8종 전투 액션(펀치~던지기)의 데미지/넉백/쿨다운과 8종 아이템의 효과 파라미터를 외부화. 런타임 로더를 통해 코드 변경 없이 밸런스 튜닝 가능한 구조 설계 |
-| **물리 기반 그랩/캐리 시스템** | ConfigurableJoint + CarryRig + CarryPhysicsProfile로 캐릭터 간 물리적 상호작용(잡기→들기→던지기) 체인을 구현. 양손 독립 그랩, 앵커 포인트별 부위 판정, AntiStretch 제약 조건으로 관절 분리 방지 |
-| **퍼포먼스 최적화** | PuppetMaster LOD 시스템, AOI(Area of Interest) 기반 네트워크 업데이트 범위 제한, 원격 플레이어 물리 비활성화 등으로 4인 동시 접속 시 안정적인 프레임 유지 |
+| 배운 점                       | 구체적 내용                                                                                                                                                                                                              |
+|:-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **래그돌 물리 & 상태 머신 설계**      | PuppetMaster 기반 Active Ragdoll 시스템에서 Stable→GrabIntent→Holding→StunnedCollapse→Stunned→Recovering 등 15개 이상의 PhysicalPhase 상태 전이를 설계. 각 상태별 물리 파라미터(pinWeight, muscleWeight, mappingWeight)를 독립 제어하여 자연스러운 래그돌 전환 구현 |
+| **Photon Fusion 네트워크 동기화** | Host-Authoritative 모델에서 15개 관절 회전값(NetworkArray), Hips 절대 위치, 전투 상태를 Networked 속성으로 동기화. OwnerProxy 예측과 StateAuthority 시뮬레이션을 분리하여 입력 지연을 체감 없는 수준으로 감소                                                             |
+| **호스트 마이그레이션**             | 방장 이탈 시 SemaphoreSlim 기반 러너 뮤텍스로 NetworkRunner 생성/종료 순서를 보장하고, ReliableData 채널로 참가자 목록·캐릭터 선택·준비 상태를 새 호스트에게 재전송하는 무중단 이관 시스템 구현                                                                                    |
+| **전투 시스템 밸런싱**             | CSV 데이터 테이블 기반으로 8종 전투 액션(펀치~던지기)의 데미지/넉백/쿨다운과 8종 아이템의 효과 파라미터를 외부화. 런타임 로더를 통해 코드 변경 없이 밸런스 튜닝 가능한 구조 설계                                                                                                           |
+| **물리 기반 그랩/캐리 시스템**        | ConfigurableJoint + CarryRig + CarryPhysicsProfile로 캐릭터 간 물리적 상호작용(잡기→들기→던지기) 체인을 구현. 양손 독립 그랩, 앵커 포인트별 부위 판정, AntiStretch 제약 조건으로 관절 분리 방지                                                                         |
+| **퍼포먼스 최적화**               | PuppetMaster LOD 시스템, AOI(Area of Interest) 기반 네트워크 업데이트 범위 제한, 원격 플레이어 물리 비활성화 등으로 4인 동시 접속 시 안정적인 프레임 유지                                                                                                          |
 
 <details>
 <summary><b>기술 상세 — 네트워크 아키텍처 (펼치기)</b></summary>
@@ -154,14 +154,14 @@
 
 #### 사용 기술
 
-| 영역 | 기술 |
-|:---|:---|
-| **Engine** | `Unity 2022.3.62f3 LTS`, `URP 14.0`, `C#` |
-| **Network** | `Photon Fusion 2`, `Photon Realtime`, `ReliableData` |
-| **Physics** | `PuppetMaster`, `Active Ragdoll`, `ConfigurableJoint`, `Rigidbody` |
+| 영역            | 기술                                                                     |
+|:------------- |:---------------------------------------------------------------------- |
+| **Engine**    | `Unity 2022.3.62f3 LTS`, `URP 14.0`, `C#`                              |
+| **Network**   | `Photon Fusion 2`, `Photon Realtime`, `ReliableData`                   |
+| **Physics**   | `PuppetMaster`, `Active Ragdoll`, `ConfigurableJoint`, `Rigidbody`     |
 | **Animation** | `Cinemachine 2.10.6`, `Animator State Machine`, `Procedural Animation` |
-| **Data** | `CSV 기반 데이터 테이블` (전투 파라미터, 아이템, VFX, SFX) |
-| **Infra** | `Docker`, `MySQL 8.0`, `Redis`, `Spring Boot` |
+| **Data**      | `CSV 기반 데이터 테이블` (전투 파라미터, 아이템, VFX, SFX)                              |
+| **Infra**     | `Docker`, `MySQL 8.0`, `Redis`, `Spring Boot`                          |
 
 #### 핵심 성과
 
@@ -171,6 +171,7 @@
 - CSV 외부화 + 런타임 로더로 **코드 변경 없이 전투 밸런스를 조정**할 수 있는 데이터 주도 설계 적용
 
 **[GitHub Repository](https://github.com/byjun98/SsafyPlayTime)**
+
 </details>
 <br>
 
@@ -220,6 +221,7 @@
 - 전술 데이터 시각화 및 리플레이 기능으로 **게임 운영 툴 개발 역량** 입증
 
 **[GitHub Repository](https://github.com/byjun98/C2S)** | **[시연 영상](https://naver.me/xM5MxOAq)**
+
 </details>
 <br>
 
@@ -279,6 +281,7 @@
 | **API**      | `Steam Web API`, `RAWG`, `CheapShark`, `Gemini 2.5 Flash Lite` |
 
 **[GitHub Repository](https://github.com/byjun98/ChuraiGame)**
+
 </details>
 <br>
 
@@ -328,6 +331,7 @@
 - 차트 로직 공통 컴포넌트화 + TypeScript 전환으로 **유지보수성** 향상
 
 **[GitHub Repository](https://github.com/byjun98/foot_pressure_arduino)**
+
 </details>
 <br>
 
@@ -419,6 +423,7 @@
 - AI 분석 → GPT 케어 가이드 → 챗봇까지 **엔드투엔드 파이프라인** 프론트에서 오케스트레이션
 
 **[GitHub Repository](https://github.com/byjun98/AnimalCarePlus)**
+
 </details>
 <br>
 
