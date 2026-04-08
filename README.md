@@ -66,14 +66,14 @@
 
 ---
 
-## 프로젝트
+## 팀 프로젝트
 
 <br>
 <details>
 <summary><b>1. SsafyPlayTime — 래그돌 물리 기반 4인 멀티플레이어 파티 배틀 게임</b></summary>
 <br>
 
-> **2026.02 ~ 2026.04** · Unity 클라이언트 개발 리드 (C# · Unity 2022.3 LTS · Photon Fusion 2)
+> **2026.02 ~ 2026.04** · 6인 팀 · Unity 클라이언트 개발 리드 (C# · Unity 2022.3 LTS · Photon Fusion 2)
 
 <a href="https://github.com/byjun98/SsafyPlayTime">
   <img src="assets/ssafy_playtime/SSAFY%20PlayTime.png" alt="SsafyPlayTime 로고" width="700"/>
@@ -179,7 +179,7 @@
 <summary><b>2. C2S — 웹소켓 기반 실시간 전술 멀티플레이어 시뮬레이터</b></summary>
 <br>
 
-> **2026.01 ~ 2026.02** · 프론트엔드 담당 (React 19 + TypeScript)
+> **2026.01 ~ 2026.02** · 6인 팀 · 프론트엔드 담당 (React 19 + TypeScript)
 
 <a href="https://github.com/byjun98/C2S">
   <img src="assets/c2s/docs/image/imag.png" alt="C2S 대표 이미지" width="700"/>
@@ -229,7 +229,7 @@
 <summary><b>3. ChuraiGame — 개인화 게임 추천 서비스</b></summary>
 <br>
 
-> **2025.09 ~ 2025.11** · 풀스택 (Django + DRF + Vue 3)
+> **2025.09 ~ 2025.11** · 2인 팀 · 풀스택 담당 (Django + DRF + Vue 3)
 
 <a href="https://github.com/byjun98/ChuraiGame">
   <img src="assets/churai_game/main.png" alt="ChuraiGame 메인 화면" width="700"/>
@@ -286,60 +286,10 @@
 <br>
 
 <details>
-<summary><b>4. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
+<summary><b>4. AniCare Plus — 반려동물 통합 케어 플랫폼</b></summary>
 <br>
 
-> **2024.03 ~ 2024.06** · 1인 개발 (React Native + Expo + Arduino)
-
-<a href="https://github.com/byjun98/foot_pressure_arduino">
-  <img src="https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/3d.png" alt="FP2 대표 이미지" width="700"/>
-</a>
-
-#### 프로젝트 스크린샷
-
-| 2D 차트 (실시간)                                                                               | 3D 차트                                                                                     | 녹화 중                                                                                             |
-|:-----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-| ![2D](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/2d.png) | ![3D](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/3d.png) | ![녹화](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/recording.png) |
-
-| BLE 연결                                                                                      | AI 건강 상담                                                                                       | 뉴스 피드                                                                                       |
-|:-------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
-| ![BLE](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/ble.png) | ![챗봇](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/chatbot.png) | ![뉴스](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/news.png) |
-
-#### 프로젝트를 통해 배운 점
-
-| 배운 점             | 구체적 내용                                               |
-|:---------------- |:---------------------------------------------------- |
-| **하드웨어 통신 프로토콜** | Arduino ESP32 BLE 데이터 파싱을 통해 외부 디바이스와의 저수준 통신 흐름을 이해 |
-| **실시간 데이터 시각화**  | 16개 센서 데이터를 2D/3D 차트로 실시간 렌더링하며 프레임 단위 갱신 경험         |
-| **녹화/리플레이 설계**   | 10초 단위 센서 데이터 스냅샷 저장 후 별도 화면에서 재분석하는 구조 설계           |
-| **상태 관리 최적화**    | Context API → Zustand 전환으로 불필요한 리렌더링 제거, 화면 반응성 개선   |
-
-#### 사용 기술
-
-| 영역                | 기술                                               |
-|:----------------- |:------------------------------------------------ |
-| **Frontend**      | `React Native`, `Expo`, `TypeScript`             |
-| **State**         | `Zustand`                                        |
-| **Visualization** | `ECharts`, `ECharts-GL`, `WebView`               |
-| **Hardware**      | `Arduino`, `ESP32`, `BLE (react-native-ble-plx)` |
-| **Animation**     | `Reanimated`, `Moti`, `NativeWind`               |
-
-#### 핵심 성과
-
-- Zustand 전환으로 센서 데이터 갱신 시 **불필요한 리렌더링 제거** 및 반응성 개선
-- 녹화 시점 클로저 버그, 빈 데이터 렌더 루프 등 **핵심 안정성 이슈** 해결
-- 차트 로직 공통 컴포넌트화 + TypeScript 전환으로 **유지보수성** 향상
-
-**[GitHub Repository](https://github.com/byjun98/foot_pressure_arduino)**
-
-</details>
-<br>
-
-<details>
-<summary><b>5. AniCare Plus — 반려동물 통합 케어 플랫폼</b></summary>
-<br>
-
-> **2024.03 ~ 2024.06** · 프론트엔드 담당 (React 18)
+> **2024.03 ~ 2024.06** · 6인 팀 · 프론트엔드 담당 (React 18)
 
 #### 주요 기능 미리보기
 
@@ -427,6 +377,108 @@
 </details>
 <br>
 
+---
+
+## 개인 프로젝트
+
+<br>
+<details>
+<summary><b>1. ScrollCap — Chrome MV3 스크롤 캡처 확장 프로그램</b></summary>
+<br>
+
+> **2026.04** · 1인 개발 (TypeScript · Chrome Extensions MV3 · Canvas 2D)
+
+| 팝업 UI | 에디터 |
+|:-------:|:------:|
+| ![팝업](assets/scrollcap/popup.png) | ![에디터](assets/scrollcap/editor.png) |
+
+#### 프로젝트 소개
+
+GoFullPage · FireShot 계열의 사용 경험을 목표로 만든 **Chrome MV3 기반 스크롤 캡처 확장 프로그램**입니다.  
+현재 화면 캡처 → 전체 페이지 자동 스크롤 캡처 → 선택 영역 캡처 → 에디터에서 스티칭/크롭/저장까지 한 흐름으로 이어지도록 설계했습니다.
+
+#### 어려웠던 점과 해결
+
+| 문제 | 해결 |
+|:--- |:--- |
+| **MV3 구조 — 역할 분리** | `service worker`(세션 제어) · `content script`(DOM 조작) · `editor`(후처리)로 명확히 분리해 캡처 파이프라인을 구조화 |
+| **스티칭 오차 · 중복** | 캡처마다 실제 `scrollX/Y`를 재측정해 tile metadata에 기록, "예상 위치"가 아닌 "실측 위치" 기반 스티칭으로 전환 |
+| **선택 영역 자동 스크롤** | viewport 좌표와 문서 좌표를 분리 관리, `requestAnimationFrame` 기반 auto-scroll 중에도 선택 rect를 문서 좌표로 재계산 |
+| **대용량 저장 안정성** | 이미지 프레임은 IndexedDB, 메타데이터는 `chrome.storage.local`, 설정은 `chrome.storage.sync`로 계층 분리; 20MB 이상 자동 분할 저장 |
+
+#### 사용 기술
+
+| 영역 | 기술 |
+|:--- |:--- |
+| **Core** | `TypeScript 5.8`, `Chrome Extensions MV3` |
+| **Build** | `Vite`, `esbuild` |
+| **Rendering** | `Canvas 2D API` |
+| **Storage** | `IndexedDB`, `chrome.storage.local/sync` |
+| **API** | `tabs`, `scripting`, `downloads`, `commands` |
+
+#### 핵심 성과
+
+- `service worker` · `content script` · `editor` 3계층 분리로 **MV3 제약 내에서 안정적인 캡처 파이프라인** 구현
+- 실측 scroll 좌표 기반 스티칭으로 **긴 페이지에서도 픽셀 단위 이음매 오차 제거**
+- IndexedDB 분리 저장 + 20MB 자동 분할로 **대용량 캡처 결과도 안정적으로 처리**
+- 파일명 템플릿 · 자동 폴더 · Undo/Redo · PNG/JPEG 내보내기 등 **실사용 기준 설정 시스템** 완성
+- 총 배포 JS **136KB**, 빌드 시간 평균 **0.585초** (esbuild 기준)
+
+**[GitHub Repository](https://github.com/byjun98/ScrollCap)**
+
+</details>
+<br>
+
+<details>
+<summary><b>2. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
+<br>
+
+> **2024.03 ~ 2024.06** · 1인 개발 (React Native + Expo + Arduino)
+
+<a href="https://github.com/byjun98/foot_pressure_arduino">
+  <img src="https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/3d.png" alt="FP2 대표 이미지" width="700"/>
+</a>
+
+#### 프로젝트 스크린샷
+
+| 2D 차트 (실시간)                                                                               | 3D 차트                                                                                     | 녹화 중                                                                                             |
+|:-----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+| ![2D](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/2d.png) | ![3D](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/3d.png) | ![녹화](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/recording.png) |
+
+| BLE 연결                                                                                      | AI 건강 상담                                                                                       | 뉴스 피드                                                                                       |
+|:-------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
+| ![BLE](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/ble.png) | ![챗봇](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/chatbot.png) | ![뉴스](https://raw.githubusercontent.com/byjun98/foot_pressure_arduino/main/assets/news.png) |
+
+#### 프로젝트를 통해 배운 점
+
+| 배운 점             | 구체적 내용                                               |
+|:---------------- |:---------------------------------------------------- |
+| **하드웨어 통신 프로토콜** | Arduino ESP32 BLE 데이터 파싱을 통해 외부 디바이스와의 저수준 통신 흐름을 이해 |
+| **실시간 데이터 시각화**  | 16개 센서 데이터를 2D/3D 차트로 실시간 렌더링하며 프레임 단위 갱신 경험         |
+| **녹화/리플레이 설계**   | 10초 단위 센서 데이터 스냅샷 저장 후 별도 화면에서 재분석하는 구조 설계           |
+| **상태 관리 최적화**    | Context API → Zustand 전환으로 불필요한 리렌더링 제거, 화면 반응성 개선   |
+
+#### 사용 기술
+
+| 영역                | 기술                                               |
+|:----------------- |:------------------------------------------------ |
+| **Frontend**      | `React Native`, `Expo`, `TypeScript`             |
+| **State**         | `Zustand`                                        |
+| **Visualization** | `ECharts`, `ECharts-GL`, `WebView`               |
+| **Hardware**      | `Arduino`, `ESP32`, `BLE (react-native-ble-plx)` |
+| **Animation**     | `Reanimated`, `Moti`, `NativeWind`               |
+
+#### 핵심 성과
+
+- Zustand 전환으로 센서 데이터 갱신 시 **불필요한 리렌더링 제거** 및 반응성 개선
+- 녹화 시점 클로저 버그, 빈 데이터 렌더 루프 등 **핵심 안정성 이슈** 해결
+- 차트 로직 공통 컴포넌트화 + TypeScript 전환으로 **유지보수성** 향상
+
+**[GitHub Repository](https://github.com/byjun98/foot_pressure_arduino)**
+
+</details>
+<br>
+
 ## 게임 클라이언트 개발을 향한 과정
 
 <div align="center">
@@ -448,6 +500,12 @@
 │  └─ AI 연동 & 프롬프트 엔지니어링  ├─ Canvas 기반 렌더링 최적화          │
 │                                  └─ 인게임 툴 개발                     │
 │                                                                      │
+│  ScrollCap (TypeScript · Chrome MV3 · Canvas 2D)                     │
+│  ├─ MV3 3계층 아키텍처 설계 (service worker/content/editor)           │
+│  ├─ 비동기 캡처 파이프라인 & 상태 전이                                  │
+│  ├─ Canvas 2D 스티칭 · 크롭 · Undo/Redo                               │
+│  └─ 저장 계층 분리 (IndexedDB / chrome.storage)                        │
+│                                                                      │
 │  SsafyPlayTime (Unity + Photon Fusion)                               │
 │  ├─ 래그돌 물리 & Active Ragdoll 설계                                  │
 │  ├─ Photon Fusion 네트워크 동기화 (관절·상태·전투)                      │
@@ -457,7 +515,7 @@
 │                                                                      │
 │  ════════════════════════════════════════════════════════════════     │
 │  → 모든 프로젝트의 공통분모: 실시간성, 상태 관리, 렌더링 최적화,        │
-│    데이터 주도 설계 — 게임 클라이언트 개발의 핵심 역량                   │
+│    데이터 주도 설계, 계층 분리 아키텍처 — 게임 클라이언트 핵심 역량      │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
