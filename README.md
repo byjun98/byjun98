@@ -430,7 +430,67 @@ GoFullPage · FireShot 계열의 사용 경험을 목표로 만든 **Chrome MV3 
 <br>
 
 <details>
-<summary><b>2. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
+<summary><b>2. Open_Translator — YouTube 실시간 자막 번역 Chrome MV3 확장 프로그램</b></summary>
+<br>
+
+> **2026.04** · 1인 개발 (WXT · React 19 · TypeScript · Chrome Extensions MV3 · OpenAI-compatible Local Proxy)
+
+#### 프로젝트 스크린샷
+
+| 빠른 설정 팝업 | YouTube 플레이어 AI 메뉴 |
+|:-------------:|:------------------------:|
+| ![빠른 설정](assets/open_api/1.png) | ![AI 메뉴](assets/open_api/2.png) |
+
+| SRT 확인/수정 페이지 | 로컬 프록시 설정 도우미 |
+|:------------------:|:----------------------:|
+| ![SRT 확인](assets/open_api/3.png) | ![프록시 설정](assets/open_api/4.png) |
+
+#### 프로젝트 소개
+
+Open_Translator는 YouTube 영상의 자막 트랙을 읽고, 현재 재생 시간에 맞는 자막을 **로컬 OpenAI 호환 프록시**로 번역해 플레이어 위에 표시하는 Chrome MV3 확장 프로그램입니다.  
+페이지 전체 번역이 아니라 **자막 cue와 영상 타임라인**을 기준으로 동작하며, 번역 결과는 실시간 오버레이뿐 아니라 `.srt` 파일로 내려받을 수 있도록 확인/수정 페이지까지 연결했습니다.
+
+#### 어려웠던 점과 해결
+
+| 문제 | 해결 |
+|:--- |:--- |
+| **YouTube SPA 이동과 자막 수집 타이밍** | `document_start`에서 page-world hook을 주입하고, videoId/route key 기준으로 caption track을 필터링해 이전 영상의 비동기 결과가 새 영상에 섞이지 않도록 처리 |
+| **실시간성 vs 번역 품질** | 40개 cue 단위 문맥 번역을 미리 준비하되, 현재 cue의 문맥 번역이 늦으면 단문 번역을 먼저 표시하고 이후 문맥 번역으로 갱신 |
+| **MV3 서비스 워커 제약** | `content script`(플레이어 UI/자막 상태) · `background`(설정/프록시 호출/캐시) · `preview page`(SRT 편집/다운로드)로 역할을 분리 |
+| **플레이어 오버레이 간섭** | Shadow DOM 기반 UI와 `pointer-events` 분리, 전체화면/극장 모드/일반 화면의 viewport 보정으로 영상 조작을 방해하지 않도록 설계 |
+
+#### 사용 기술
+
+| 영역 | 기술 |
+|:--- |:--- |
+| **Core** | `WXT 0.20`, `React 19`, `TypeScript 5.9`, `Chrome Extensions MV3` |
+| **YouTube** | `content script`, `page-world hook`, `InnerTube`, `timedtext caption tracks` |
+| **AI/Proxy** | `OpenAI-compatible local proxy`, `/v1/chat/completions`, `/v1/models` |
+| **Storage/Export** | `browser.storage.sync/local`, `SRT builder`, `runtime messaging` |
+
+#### 프로젝트를 통해 배운 점
+
+| 배운 점 | 구체적 내용 |
+|:--- |:--- |
+| **타임라인 기반 상태 동기화** | `video.currentTime`과 자막 cue index를 기준으로 화면 표시, 선번역, export 데이터를 같은 흐름에서 관리 |
+| **오버레이 UI 설계** | 플레이어 위 HUD처럼 떠 있는 UI를 만들면서 클릭 영역, 전체화면, 화면 경계 보정을 함께 고려 |
+| **비동기 작업 생명주기 관리** | route 전환, fetch abort, generation guard, 캐시 무효화를 통해 오래된 작업 결과가 현재 화면을 덮어쓰지 않도록 제어 |
+| **로컬 실행 환경 분리** | 확장 프로그램은 localhost 권한만 갖고, 인증과 모델 호출은 로컬 프록시에 위임해 권한 범위를 좁힘 |
+
+#### 핵심 성과
+
+- YouTube 자막 cue 기반 **실시간 번역 오버레이**와 AI 메뉴 구현
+- 문맥 번역 queue + 단문 fallback + 캐시 조합으로 **화면 공백을 줄이는 번역 흐름** 설계
+- 다운로드 전 확인 페이지에서 원문/번역 직접 수정, 전체 문맥 다듬기, `.srt` 다운로드까지 연결
+- 프록시 시작/중지 스크립트와 옵션 페이지를 포함해 **설치 후 사용 가능한 로컬 자막 번역 도구**로 정리
+
+**[GitHub Repository](https://github.com/byjun98/Open_Translator)**
+
+</details>
+<br>
+
+<details>
+<summary><b>3. 족압 측정 앱 (FP2) — Arduino BLE + React Native</b></summary>
 <br>
 
 > **2024.03 ~ 2024.06** · 1인 개발 (React Native + Expo + Arduino)
@@ -506,6 +566,12 @@ GoFullPage · FireShot 계열의 사용 경험을 목표로 만든 **Chrome MV3 
 │  ├─ Canvas 2D 스티칭 · 크롭 · Undo/Redo                               │
 │  └─ 저장 계층 분리 (IndexedDB / chrome.storage)                        │
 │                                                                      │
+│  Open_Translator (WXT · React · Chrome MV3)                           │
+│  ├─ 재생 시간 기반 자막 cue 동기화                                      │
+│  ├─ 플레이어 오버레이 UI · 메뉴 보정                                     │
+│  ├─ 비동기 번역 queue · 캐시 · fallback 설계                            │
+│  └─ 로컬 프록시와 확장 권한 분리                                         │
+│                                                                      │
 │  SsafyPlayTime (Unity + Photon Fusion)                               │
 │  ├─ 래그돌 물리 & Active Ragdoll 설계                                  │
 │  ├─ Photon Fusion 네트워크 동기화 (관절·상태·전투)                      │
@@ -515,7 +581,7 @@ GoFullPage · FireShot 계열의 사용 경험을 목표로 만든 **Chrome MV3 
 │                                                                      │
 │  ════════════════════════════════════════════════════════════════     │
 │  → 모든 프로젝트의 공통분모: 실시간성, 상태 관리, 렌더링 최적화,        │
-│    데이터 주도 설계, 계층 분리 아키텍처 — 게임 클라이언트 핵심 역량      │
+│    비동기 리소스 생명주기, 계층 분리 아키텍처 — 게임 클라이언트 핵심 역량 │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
