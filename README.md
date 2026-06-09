@@ -9,7 +9,7 @@
 게임의 재미를 설계하는 **기획**과, 그것을 실현하는 **클라이언트 개발**을  
 모두 경험하며 양쪽의 언어를 이해하는 개발자입니다.
 
-[![Velog](https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white)](https://velog.io/@byjun98)
+[![Velog](https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white)](https://velog.io/@byjun9804)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/byjun98)
 [![Game Design Blog](https://img.shields.io/badge/Game_Design_Blog-03C75A?style=for-the-badge&logo=naver&logoColor=white)](https://blog.naver.com/PostList.naver?blogId=byjun_04&from=postList&categoryNo=24&parentCategoryNo=24)
 
