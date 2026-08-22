@@ -55,10 +55,11 @@
 
 <div align="center">
   <a href="https://github.com/byjun98">
-    <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=byjun98&show_icons=true&include_all_commits=true&theme=tokyonight&hide_border=true&include_forks=true" height="180" alt="GitHub Stats" />
+    <img src="https://github-readme-stats.vercel.app/api?username=byjun98&show_icons=true&include_all_commits=true&theme=tokyonight&hide_border=true&include_forks=true" height="180" alt="GitHub Stats" />
   </a>
+
   <a href="https://github.com/byjun98">
-    <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=byjun98&layout=compact&theme=tokyonight&hide_border=true" height="180" alt="Top Langs" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=byjun98&layout=compact&theme=tokyonight&hide_border=true" height="180" alt="Top Langs" />
   </a>
 </div>
 
