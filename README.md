@@ -437,7 +437,7 @@ ATORIA는 경주 문화유산 탐방을 **AI 스토리, 장소 기반 미션, �
 - JWT 기반 인증 시스템으로 보안 수준 향상 및 세션 관리 비용 절감
 - AI 분석 → GPT 케어 가이드 → 챗봇까지 **엔드투엔드 파이프라인** 프론트에서 오케스트레이션
 
-**[GitHub Repository](https://github.com/byjun98/AnimalCarePlus)**
+**[GitHub Repository](https://github.com/byjun98/Animal_Care_Plus)**
 
 </details>
 <br>
